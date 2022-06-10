@@ -113,6 +113,16 @@ Willow-Cars dataset does not support testing with GENN because it is trained wit
 
 Besides, this repository is originally developed for problems where the ground truth GED is available. The metrics printed for Willow dataset are computed with surrogate labels which are incorrect, and users should compute the correct metric by the result files stored in ``results/``.
 
+## A Note about the Evaluation Time
+GENN-A* purely runs on CPU, and the evaluation of GENN-A* is faster than the classic A* algorithm. However, evaluating GENN-A* may be still time-consuming, and we provide some possible reasons and clues:
+1. We follow the testing protocol by existing GED learning papers that all pairs of graphs are compared. If there are N graphs in the test dataset, N(N-1) NP-hard GED problems need to be solved.
+    * Set a beam search width for A* so that it will predict a result more efficiently (at the cost of decreased accuracy);
+    * Sample a subset of pairs of graphs during evaluation (and please note that the result is no longer a fair comparison with existing GED learning papers);
+2. Since GENN-A* purely runs on CPU, the CPU speed is very important. Our experiments are run on i7-9700K CPU @ 3.60GHz, but I know many deep learning servers are equipped with Xeon CPUs @ 2.xGHz. 
+    * You may try running our code on faster CPUs (say, on your gaming computer whose CPU is usually faster).
+3. The nature of A* algorithm is doing exaustive tree search on all possible mathcings to find the optimal. 
+    * If you care more about faster and better feasible solutions, you may see our PPO-BiHyb ([[paper]](https://arxiv.org/abs/2106.04927), [[code]](https://github.com/Thinklab-SJTU/ppo-bihyb#graph-edit-distance-ged))
+
 ## Some Remarks on Using GENN-A* on Your Own Dataset
 We provide some remarks on applying GENN-A* to your own dataset. 
 * Like other machine learning tasks, you should split your data into three subsets: training set, validation set and testing set.
