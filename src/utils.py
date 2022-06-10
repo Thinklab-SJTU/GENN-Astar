@@ -36,8 +36,8 @@ def calculate_prec_at_k(k, prediction, groundtruth):
     """
     Calculating precision at k.
     """
-    best_k_pred = prediction.argsort()[:k]
-    best_k_gt = groundtruth.argsort()[:k]
+    best_k_pred = prediction.argsort()[-k:]
+    best_k_gt = groundtruth.argsort()[-k:]
     
     return len(set(best_k_pred).intersection(set(best_k_gt))) / k
 
