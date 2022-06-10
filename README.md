@@ -121,7 +121,7 @@ GENN-A* purely runs on CPU, and the evaluation of GENN-A* is faster than the cla
 2. Since GENN-A* purely runs on CPU, the CPU speed is very important. Our experiments are run on i7-9700K CPU @ 3.60GHz, but I know many deep learning servers are equipped with Xeon CPUs @ 2.xGHz that can make the algorithm slower. 
     * You may try running our code on faster CPUs (say, on your gaming computer whose CPU is usually faster).
 3. The nature of A* algorithm is doing exaustive tree search on all possible mathcings to find the optimal. 
-    * If you care more about faster feasible solutions, you may see our PPO-BiHyb ([[paper]](https://arxiv.org/abs/2106.04927), [[code]](https://github.com/Thinklab-SJTU/ppo-bihyb#graph-edit-distance-ged))
+    * If you care more about faster feasible solutions, you may also try our PPO-BiHyb ([[paper]](https://arxiv.org/abs/2106.04927), [[code]](https://github.com/Thinklab-SJTU/ppo-bihyb#graph-edit-distance-ged))
 
 ## Some Remarks on Using GENN-A* on Your Own Dataset
 We provide some remarks on applying GENN-A* to your own dataset. 
