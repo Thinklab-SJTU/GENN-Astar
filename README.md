@@ -65,11 +65,17 @@ python main.py --test --dataset AIDS700nef
 ```
 the model weights are loaded from ``best_genn_AIDS700nef_gcn.pt``
 
+Finetune with ground-truth edit paths:
+```
+python main.py --enable-astar --dataset AIDS700nef --epochs 1000 --weight-decay 5.0e-5 --batch-size 1 --learning-rate 0.001
+```
+the trained model weights are stored in ``best_genn_AIDS700nef_gcn_astar.pt``
+
 Test GENN-A* on test set:
 ```
 python main.py --test --dataset AIDS700nef --enable-astar --astar-use-net --batch-size 1
 ```
-the model weights are loaded from ``best_genn_AIDS700nef_gcn_astar.pt``. You may need to manually append ``_astar`` to the filename.
+the model weights are loaded from ``best_genn_AIDS700nef_gcn_astar.pt``
 
 ### LINUX
 Train the neural network module and test on validation set:
@@ -84,11 +90,17 @@ python main.py --test --dataset LINUX
 ```
 the model weights are loaded from ``best_genn_LINUX_gcn.pt``
 
+Finetune with ground-truth edit paths:
+```
+python main.py --enable-astar --dataset LINUX --epochs 1000 --weight-decay 5.0e-5 --batch-size 1 --learning-rate 0.001
+```
+the trained model weights are stored in ``best_genn_LINUX_gcn_astar.pt``
+
 Test GENN-A* on test set:
 ```
 python main.py --test --dataset LINUX --enable-astar --astar-use-net --batch-size 1
 ```
-the model weights are loaded from ``best_genn_LINUX_gcn_astar.pt``. You may need to manually append ``_astar`` to the filename.
+the model weights are loaded from ``best_genn_LINUX_gcn_astar.pt``
 
 ### Willow-Cars
 Train the neural network module:
